@@ -44,6 +44,7 @@
 #include "CocoStudio/Armature/CCArmature.h"
 #include "CocoStudio/Armature/CCBone.h"
 #include "CocoStudio/Armature/animation/CCArmatureAnimation.h"
+#include "CocoStudio/Armature/animation/CCProcessBase.h"
 #include "CocoStudio/Armature/datas/CCDatas.h"
 #include "CocoStudio/Armature/display/CCBatchNode.h"
 #include "CocoStudio/Armature/display/CCDecorativeDisplay.h"
