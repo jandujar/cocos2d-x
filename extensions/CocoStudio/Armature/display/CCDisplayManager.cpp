@@ -239,6 +239,42 @@ void CCDisplayManager::changeDisplayByIndex(int index, bool force)
     setCurrentDecorativeDisplay(decoDisplay);
 }
 
+void CCDisplayManager::changeDisplayByName(const char *name, bool force)
+{
+    CCAssert( strlen(name)>0, "the name can not be null");
+
+    m_bForceChangeDisplay = force;
+
+    CCDecorativeDisplay *decoDisplay = NULL;
+
+    for ( int index = 0 ; index < m_pDecoDisplayList->count() ; index++){
+        
+        // Only works with CCSpriteDisplayData or CCArmatureDisplayData
+        if ( dynamic_cast<CCSpriteDisplayData *>(((CCDecorativeDisplay *)m_pDecoDisplayList->objectAtIndex(index))->getDisplayData()) ){
+            
+            if ( std::strcmp( name, ( dynamic_cast<CCSpriteDisplayData *>(((CCDecorativeDisplay *)m_pDecoDisplayList->objectAtIndex(index))->getDisplayData()) )->displayName.c_str() ) == 0 ){
+                decoDisplay = (CCDecorativeDisplay *)m_pDecoDisplayList->objectAtIndex(index);
+                m_iDisplayIndex = index;
+                break;
+            }
+            
+        }else if ( dynamic_cast<CCArmatureDisplayData *>(((CCDecorativeDisplay *)m_pDecoDisplayList->objectAtIndex(index))->getDisplayData()) ){
+            
+            if ( std::strcmp( name, ( dynamic_cast<CCArmatureDisplayData *>(((CCDecorativeDisplay *)m_pDecoDisplayList->objectAtIndex(index))->getDisplayData()) )->displayName.c_str() ) == 0 ){
+                decoDisplay = (CCDecorativeDisplay *)m_pDecoDisplayList->objectAtIndex(index);
+                m_iDisplayIndex = index;
+                break;
+            }
+            
+        }
+    }
+    
+    if( decoDisplay != NULL){
+        setCurrentDecorativeDisplay(decoDisplay);
+    }
+
+}
+
 void CCDisplayManager::setCurrentDecorativeDisplay(CCDecorativeDisplay *decoDisplay)
 {
 #if ENABLE_PHYSICS_BOX2D_DETECT || ENABLE_PHYSICS_CHIPMUNK_DETECT
