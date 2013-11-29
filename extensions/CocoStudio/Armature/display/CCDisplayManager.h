@@ -85,6 +85,16 @@ public:
      */
     void changeDisplayByIndex(int index, bool force);
 
+    /**
+     * Change display by name. You can just use this method to change display in the display list.
+     * The display list is just used for this bone, and it is the displays you may use in every frame.
+     *
+     * Note : if name is the same with prev name, the method will not effect
+     *
+     * @param name The name of the display you want to change
+     * @param force If true, then force change display to specified display, or current display will set to  display index edit in the flash every key frame.
+     */
+    void changeDisplayByName(const char *name, bool force);
 
     CCNode *getDisplayRenderNode();
     DisplayType getDisplayRenderNodeType();
