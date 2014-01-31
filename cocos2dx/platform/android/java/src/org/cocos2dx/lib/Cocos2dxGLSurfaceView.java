@@ -293,6 +293,8 @@ public class Cocos2dxGLSurfaceView extends GLSurfaceView {
 		switch (pKeyCode) {
 			case KeyEvent.KEYCODE_BACK:
 			case KeyEvent.KEYCODE_MENU:
+				/*
+				 * Ignoramos los keyevents de cocos2dx (utilizaremos los de android)
 				this.queueEvent(new Runnable() {
 					@Override
 					public void run() {
@@ -300,6 +302,7 @@ public class Cocos2dxGLSurfaceView extends GLSurfaceView {
 					}
 				});
 				return true;
+				*/
 			default:
 				return super.onKeyDown(pKeyCode, pKeyEvent);
 		}
