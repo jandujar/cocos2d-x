@@ -638,9 +638,9 @@ void Widget::setTouchEnabled(bool enable)
     _touchEnabled = enable;
 }
 
-bool Widget::isTouchEnabled() const
+bool Widget::isTouchEnabled()
 {
-    return _touchEnabled;
+    return _touchEnabled && this->isVisible();
 }
 
 bool Widget::isFocused() const

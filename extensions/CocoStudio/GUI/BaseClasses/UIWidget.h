@@ -152,7 +152,7 @@ public:
      *
      * @return true if the widget is touch enabled, false if the widget is touch disabled.
      */
-    bool isTouchEnabled() const;
+    bool isTouchEnabled();
     
     /**
      * Determines if the widget is on focused

@@ -151,7 +151,7 @@ int CCLayer::excuteScriptTouchHandler(int nEventType, CCSet *pTouches)
 /// isTouchEnabled getter
 bool CCLayer::isTouchEnabled()
 {
-    return m_bTouchEnabled;
+    return m_bTouchEnabled && this->isVisible();
 }
 /// isTouchEnabled setter
 void CCLayer::setTouchEnabled(bool enabled)
